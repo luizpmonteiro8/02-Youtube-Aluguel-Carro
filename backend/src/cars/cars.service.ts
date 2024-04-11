@@ -28,6 +28,7 @@ export class CarsService {
           available: true,
           year: true,
           color: true,
+          colorId: true,
         },
       });
     } catch (error) {
@@ -45,6 +46,7 @@ export class CarsService {
           available: true,
           year: true,
           color: true,
+          colorId: true,
         },
       });
       if (!car) {

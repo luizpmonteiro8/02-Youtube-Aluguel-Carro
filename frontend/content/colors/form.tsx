@@ -28,7 +28,7 @@ export default function Form() {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Formulário de Cores</h1>
+      <h1 className="text-2xl font-bold mb-4">Formulário de cores</h1>
 
       <div className="flex justify-center items-center">
         <div className="bg-white p-8 rounded shadow-md w-96">

@@ -87,6 +87,8 @@ export class ClientsService {
     try {
       return await this.prisma.client.delete({ where: { id } });
     } catch (error) {
+      console.log(error);
+
       throw new ConflictException('Erro ao excluir a cliente');
     }
   }

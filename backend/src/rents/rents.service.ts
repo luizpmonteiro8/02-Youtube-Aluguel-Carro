@@ -39,6 +39,8 @@ export class RentsService {
           total: true,
           startDate: true,
           endDate: true,
+          clientId: true,
+          carId: true,
           car: {
             select: {
               id: true,
@@ -81,6 +83,8 @@ export class RentsService {
           total: true,
           startDate: true,
           endDate: true,
+          clientId: true,
+          carId: true,
           car: {
             select: {
               id: true,
@@ -128,7 +132,6 @@ export class RentsService {
           endDate,
           dayValue,
           total,
-
           client: { connect: { id: clientId } },
           car: { connect: { id: carId } },
         },

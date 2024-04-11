@@ -46,7 +46,7 @@ model Addresses {
   state    String
   zipCode  String
   country  String
-  client   Client @relation(fields: [clientId], references: [id])
+  client   Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
   clientId Int
 
   @@map("addresses")

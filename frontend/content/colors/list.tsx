@@ -11,7 +11,7 @@ export default async function List() {
   const colors = await getColors();
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Lista de Cores</h1>
+      <h1 className="text-2xl font-bold mb-4">Lista de cores</h1>
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>

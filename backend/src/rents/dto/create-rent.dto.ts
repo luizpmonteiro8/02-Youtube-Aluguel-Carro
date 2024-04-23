@@ -23,10 +23,6 @@ export class CreateRentDto {
   )
   endDate: string;
 
-  @IsNotEmpty({ message: 'O valor total não pode estar vazio' })
-  @IsNumber({}, { message: 'O valor total deve ser um número' })
-  total: number;
-
   @IsNotEmpty({ message: 'O ID do carro não pode estar vazio' })
   @IsNumber({}, { message: 'O ID do carro deve ser um número' })
   carId: number;

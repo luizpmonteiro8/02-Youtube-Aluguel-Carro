@@ -12,8 +12,10 @@ export class RentsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createRentDto: CreateRentDto) {
-    const { startDate, endDate, dayValue, total, clientId, carId } =
-      createRentDto;
+    const { startDate, endDate, dayValue, clientId, carId } = createRentDto;
+
+    const total = this.calculateTotal(startDate, endDate, dayValue);
+
     try {
       return await this.prisma.rent.create({
         data: {
@@ -122,8 +124,9 @@ export class RentsService {
   }
 
   async update(id: number, updateRentDto: UpdateRentDto) {
-    const { startDate, endDate, dayValue, total, clientId, carId } =
-      updateRentDto;
+    const { startDate, endDate, dayValue, clientId, carId } = updateRentDto;
+
+    const total = this.calculateTotal(startDate, endDate, dayValue);
     try {
       return await this.prisma.rent.update({
         where: { id },
@@ -147,5 +150,13 @@ export class RentsService {
     } catch (error) {
       throw new ConflictException('Erro ao excluir a aluguel');
     }
+  }
+
+  calculateTotal(startDate: string, endDate: string, dayValue: number) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const diffTime = Math.abs(end.getTime() - start.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays * dayValue;
   }
 }

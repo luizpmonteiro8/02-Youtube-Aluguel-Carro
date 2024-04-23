@@ -41,7 +41,6 @@ export default function Form() {
       .then((data) => setCars(data))
       .catch((error) => console.error("Erro ao buscar carro:", error));
   }
-  console.log(cars);
 
   useEffect(() => {
     getColors().then((data) => setColors(data));
@@ -149,7 +148,7 @@ export default function Form() {
                       htmlFor="colorId"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Carro:
+                      Cores:
                     </label>
                     <select
                       id="colorId"
@@ -160,7 +159,7 @@ export default function Form() {
                         setFieldValue("colorId", target.value);
                       }}
                     >
-                      <option value="">Selecione uma carro</option>
+                      <option value="">Selecione uma cor</option>
                       {colors?.map((color) => (
                         <option key={color.id} value={color.id}>
                           {color.name}
